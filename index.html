@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculette Pret Immobilier</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="img/logo_microlead.svg" alt="" />
+    </header>
+    <main>
+      <form>
+        <h1>Calculatrice prêt immobilier</h1>
+
+        <div>
+          <label for="borrowed_amount"><p><b>Montant emprunté</b></p></label>
+          <div id="borrowed_box" class="inputbox"><input placeholder="100000" id="borrowed_amount" type="number" /></div>
+        </div>
+
+        <div>
+          <label for="nominal_rate"><p><b>Taux nominal</b></p></label>
+          <div id="nominal_box" class="inputbox"><input required placeholder="1.2" id="nominal_rate" type="number" /></div>
+        </div>
+
+        <div>
+          <label for="repayment_term"><p><b>Durée de remboursement</b></p></label>
+          <div id="repayment_box" class="inputbox"><input placeholder="15" id="repayment_term" type="number" /></div>
+        </div>
+
+        <button id="submit_button">Calculer</button>
+      </form>
+    </main>
+  </body>
+
+
+  <script src="script/script.js"></script>
+</html>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+
+:root{
+    --blue : #234B68;
+}
+
+*{
+    font-family: "Nunito Sans";
+    color: var(--blue);
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    margin: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    max-width: 75vw;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+   
+}
+
+form{
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 10px;
+    gap: 15px;
+}
+form h1{
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+form div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+form div div{
+    display: flex;
+    align-items: center;
+}
+input{
+    width: 230px;
+    height: 30px;
+    border: 2px solid;
+    border-right: none;
+}
+
+
+
+button{
+    background-color: var(--blue);
+    color: white;
+    width: 200px;
+    height: 44px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 50px;
+    box-shadow: 10px 10px solid;
+}
+
+.inputbox::after{
+   color: white;
+    width: 50px;
+    background-color: var(--blue);
+    height: 34px;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#repayment_box::after{
+    content: 'an(s)'; 
+}
+
+#nominal_box::after{
+    content: '%'; 
+}
+
+#borrowed_box::after{
+    content: '€';
+}
+input::placeholder{
+    padding-left: 10px ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+button:hover{
+    cursor: pointer;
+}
