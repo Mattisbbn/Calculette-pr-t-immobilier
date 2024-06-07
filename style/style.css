@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-input::-webkit-outer-spin-#submit_button,
-input::-webkit-inner-spin-#submit_button {
-    -webkit-appearance: none;
-}
+
 
 :root{
     --blue : #234B68;
+    --blue-active : #29517F;
 }
 
 *{
@@ -43,7 +41,7 @@ form{
     border-radius: 10px;
     gap: 15px;
 }
-form h1{
+h1{
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 30px;
@@ -69,14 +67,14 @@ input{
 
 
 
-#submit_button{
+.principals_buttons{
     background-color: var(--blue);
     color: white;
     width: 200px;
     height: 44px;
     border-radius: 10px;
     border: none;
-    margin-top: 50px;
+    margin-top: 100px;
     box-shadow: 10px 10px solid;
 }
 
@@ -155,6 +153,19 @@ td{
 
 
 
+
+
+    section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+.principals_buttons:hover{
+
+    background-color: var(--blue-active);
+    
+}
 
 
     

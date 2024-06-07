@@ -26,11 +26,11 @@ form.addEventListener("submit", function (event) {
     remainingBalance -= amortization;
     let row = `<tr>
             <td>${i}</td> 
-            <td>${Math.round(balance)}</td> 
-            <td>${Math.round(monthlyDue)}</td> 
-            <td>${Math.round(interestOfMonth)}</td> 
-            <td>${Math.round(amortization)}</td> 
-            <td>${Math.round(remainingBalance)}</td> 
+            <td>${Math.round(balance)}€</td> 
+            <td>${Math.round(monthlyDue)}€</td> 
+            <td>${Math.round(interestOfMonth)}€</td> 
+            <td>${Math.round(amortization)}€</td> 
+            <td>${Math.round(remainingBalance)}€</td> 
         </tr>`;
 
     balance = remainingBalance;
