@@ -9,9 +9,12 @@
 
   <body>
     <header>
-      <img id="logo_microlead" src="img/logo_microlead.svg" alt="" />
+      <img id="logo_microlead" src="img/logo_microlead.svg" alt="logo_Microlead" />
     </header>
+
     <main>
+
+      <section>
       <form>
         <h1>Calculatrice prêt immobilier</h1>
         <div>
@@ -20,7 +23,6 @@
           >
           <div id="borrowed_box" class="inputbox">
             <input
-              required
               placeholder="100000"
               id="borrowed_amount"
               type="text"
@@ -35,7 +37,7 @@
           <div id="nominal_box" class="inputbox">
             <input
               step="0.1"
-              required
+              
               placeholder="1.2"
               id="nominal_rate"
               type="text"
@@ -48,15 +50,16 @@
             ><p><b>Durée de remboursement</b></p></label
           >
           <div id="repayment_box" class="inputbox">
-            <input required placeholder="15" id="repayment_term" type="text" />
+            <input  placeholder="15" id="repayment_term" type="text" />
           </div>
         </div>
-
         <button class="principals_buttons">Calculer</button>
       </form>
+    </section>
 
       <section>
         <h1>Tableau d’amortissement</h1>
+
         <table>
           <thead>
             <tr>
@@ -72,9 +75,7 @@
           <tbody></tbody>
         </table>
 
-        <button id="pdfButton" class="principals_buttons">
-          Telecharger en PDF
-        </button>
+        <button id="pdfButton" class="principals_buttons">Telecharger en PDF</button>
       </section>
     </main>
   </body>

@@ -5,6 +5,7 @@
 :root{
     --blue : #234B68;
     --blue-active : #29517F;
+    --orange : #FF822E;
 }
 
 *{
@@ -33,12 +34,9 @@ main{
 
 form{
     width: 100%;
-    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
-    border-radius: 10px;
     gap: 15px;
 }
 h1{
@@ -63,6 +61,11 @@ input{
     height: 30px;
     border: 2px solid;
     border-right: none;
+    text-indent: 10px;
+}
+
+input:focus{
+    outline: none;
 }
 
 
@@ -79,10 +82,11 @@ input{
 }
 
 .inputbox::after{
+    box-shadow: 3px 3px  2px #00000030;
    color: white;
     width: 50px;
     background-color: var(--blue);
-    height: 34px;
+    height :33.2px ;
     border-radius: 0 10px 10px 0;
     display: flex;
     align-items: center;
@@ -101,9 +105,7 @@ input{
 #borrowed_box::after{
     content: '€';
 }
-input::placeholder{
-    padding-left: 10px ;
-}
+
 
 
 #submit_button:hover{
@@ -115,11 +117,17 @@ section{
     display: flex;
     width: 100%;
     border: 1px solid;
-    padding: 40px;
+    padding: 60px;
     border-radius: 10px;
     margin-top: 15px;
     justify-content: center;
     align-items: center;
+
+  
+}
+
+section , button, input ,input:focus{
+    box-shadow: 3px 3px  2px #00000030;
 }
 
 table{
@@ -158,6 +166,7 @@ td{
     section{
         display: flex;
         flex-direction: column;
+        margin-bottom: 15px;
     }
 
     
@@ -167,5 +176,9 @@ td{
     
 }
 
+
+#pdfButton{
+    display: none;
+}
 
     
