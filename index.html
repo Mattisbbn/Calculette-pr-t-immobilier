@@ -15,25 +15,55 @@
         <h1>Calculatrice prêt immobilier</h1>
 
         <div>
-          <label for="borrowed_amount"><p><b>Montant emprunté</b></p></label>
-          <div id="borrowed_box" class="inputbox"><input placeholder="100000" id="borrowed_amount" type="number" /></div>
+          <label for="borrowed_amount"
+            ><p><b>Montant emprunté</b></p></label
+          >
+          <div id="borrowed_box" class="inputbox">
+            <input required placeholder="100000" id="borrowed_amount" type="text" />
+          </div>
         </div>
 
         <div>
-          <label for="nominal_rate"><p><b>Taux nominal</b></p></label>
-          <div id="nominal_box" class="inputbox"><input required placeholder="1.2" id="nominal_rate" type="number" /></div>
+          <label for="nominal_rate"
+            ><p><b>Taux nominal</b></p></label
+          >
+          <div id="nominal_box" class="inputbox">
+            <input step="0.1" required placeholder="1.2" id="nominal_rate" type="text" />
+          </div>
         </div>
 
         <div>
-          <label for="repayment_term"><p><b>Durée de remboursement</b></p></label>
-          <div id="repayment_box" class="inputbox"><input placeholder="15" id="repayment_term" type="number" /></div>
+          <label for="repayment_term"
+            ><p><b>Durée de remboursement</b></p></label
+          >
+          <div id="repayment_box" class="inputbox">
+            <input required placeholder="15" id="repayment_term" type="text" />
+          </div>
         </div>
 
         <button id="submit_button">Calculer</button>
       </form>
+<section>
+      <table>
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th>Solde initial</th>
+            <th>Échéance</th>
+            <th>Intérêts</th>
+            <th>Amortissement</th>
+            <th>Solde restant</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            
+            
+        </tbody>
+      </table>
+    </section>
     </main>
   </body>
-
 
   <script src="script/script.js"></script>
 </html>
