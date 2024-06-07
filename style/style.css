@@ -45,9 +45,11 @@ form{
 }
 form h1{
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 700;
     margin-bottom: 30px;
 }
+
+
 
 form div{
     display: grid;
@@ -129,3 +131,30 @@ table{
 td{
     text-align: center;
 }
+
+@media screen and (max-width: 760px) {
+    
+    main{
+        max-width: 85vw;
+        margin-top: 1vh;
+    }
+
+    header{
+        display: none;
+    }
+
+   
+    form div{
+        grid-template-columns: 1fr;
+      
+    }
+    form div p {
+        text-align: center;
+    }
+    }
+
+
+
+
+
+    
