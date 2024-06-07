@@ -1,4 +1,6 @@
 const form = document.querySelector("form");
+const pdfButton = document.querySelector("#pdfButton");
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const tbody = document.querySelector("tbody");
@@ -37,3 +39,20 @@ form.addEventListener("submit", function (event) {
     tbody.innerHTML += row;
   }
 });
+
+pdfButton.addEventListener("click", generatePDF);
+
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.autoTable({
+    html: "table",
+    theme: "striped",
+    headStyles: { fillColor: [0, 0, 255] },
+    styles: { fontSize: 10, cellPadding: 3 },
+    margin: { top: 20 },
+  });
+
+  doc.save("a4.pdf");
+}
