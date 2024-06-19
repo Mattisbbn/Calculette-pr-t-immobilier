@@ -2,11 +2,10 @@ const form = document.querySelector("form");
 const tbody = document.querySelector("tbody");
 const pdfButton = document.querySelector("#pdfButton");
 const inputs = document.querySelectorAll("input");
+const errors = document.querySelector("#errors");
 const borrowed_amount_input = document.querySelector("#borrowed_amount");
 const nominal_rate_input = document.querySelector("#nominal_rate");
 const repayment_term_input = document.querySelector("#repayment_term");
-
-
 
 form.addEventListener("submit", drawTable);
 pdfButton.addEventListener("click", generatePDF);
@@ -21,8 +20,10 @@ function drawTable(event) {
   let remainingBalance = borrowed_amount;
   let balance = borrowed_amount;
 
-  if (checkBorrowedAmount() && checkNominalRate() &&  checkRepaymentTerm() ) {
+  if (checkBorrowedAmount() && checkNominalRate() && checkRepaymentTerm()) {
+    errors.innerHTML = "";
     tbody.innerHTML = "";
+    pdfButton.style.display = "block";
     for (let i = 1; i <= repaymentTermInMonth; i++) {
       let interestOfMonth = remainingBalance * interestPerMonth;
       let monthlyDue =
@@ -44,8 +45,8 @@ function drawTable(event) {
       balance = remainingBalance;
       tbody.innerHTML += row;
     }
-    pdfButton.style.display = "block";
   } else {
+    errors.innerHTML = errorsList;
     tbody.innerHTML = "";
     pdfButton.style.display = "none";
   }
@@ -54,15 +55,15 @@ function drawTable(event) {
 function checkBorrowedAmount() {
   const borrowed_amount_value = borrowed_amount_input.value;
   if (borrowed_amount_value <= 0) {
-    console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
-    inputs[0].style.color = 'var(--orange)'
+    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0");
+    inputs[0].style.color = "var(--orange)";
     return false;
   } else if (isNaN(borrowed_amount_value)) {
-    console.log("Veuillez entrer une valeur numérique");
-    inputs[0].style.color = 'var(--orange)'
+    errorsList.push("Veuillez entrer une valeur numérique");
+    inputs[0].style.color = "var(--orange)";
     return false;
-  }else {
-     inputs[0].style.color = 'var(--blue)'
+  } else {
+    inputs[0].style.color = "var(--blue)";
     return true;
   }
 }
@@ -70,38 +71,37 @@ function checkBorrowedAmount() {
 function checkNominalRate() {
   const nominal_rate_value = nominal_rate_input.value;
   if (nominal_rate_value <= 0) {
-    console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
-    inputs[1].style.color = 'var(--orange)'
+    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0");
+    inputs[1].style.color = "var(--orange)";
     return false;
   } else if (isNaN(nominal_rate_value)) {
-    console.log("Veuillez entrer une valeur numérique");
-    inputs[1].style.color = 'var(--orange)'
+    errorsList.push("Veuillez entrer une valeur numérique");
+    inputs[1].style.color = "var(--orange)";
     return false;
-  }else {
-     inputs[1].style.color = 'var(--blue)'
+  } else {
+    inputs[1].style.color = "var(--blue)";
     return true;
   }
 }
 
+function checkRepaymentTerm() {
+  const repayment_term_value = repayment_term_input.value;
+  if (repayment_term_value <= 0) {
+    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0");
+    inputs[2].style.color = "var(--orange)";
+    return false;
+  } else if (isNaN(repayment_term_value)) {
+    errorsList.push("Veuillez entrer une valeur numérique");
+    inputs[2].style.color = "var(--orange)";
 
+    return false;
+  } else {
+    inputs[2].style.color = "var(--blue)";
+    return true;
+  }
+}
 
-function checkRepaymentTerm(){
-const repayment_term_value =  repayment_term_input.value
-if (repayment_term_value <= 0) {
-  console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
-  errorsList.push("test")
-   inputs[2].style.color = 'var(--orange)'
-  return false;
-} else if (isNaN(repayment_term_value)) {
-  console.log("Veuillez entrer une valeur numérique");
-   inputs[2].style.color = 'var(--orange)'
-  return false;
-}else {
-   inputs[2].style.color = 'var(--blue)'
-  return true;
-}
-}
-let errorsList = []
+let errorsList = [];
 
 function generatePDF() {
   const { jsPDF } = window.jspdf;

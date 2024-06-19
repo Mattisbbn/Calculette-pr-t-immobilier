@@ -182,3 +182,6 @@ td{
 }
 
     
+#errors{
+    color: var(--orange);
+}
