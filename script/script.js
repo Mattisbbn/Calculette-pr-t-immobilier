@@ -11,6 +11,7 @@ form.addEventListener("submit", drawTable);
 pdfButton.addEventListener("click", generatePDF);
 
 function drawTable(event) {
+  errorsList = []
   event.preventDefault();
   const borrowed_amount = parseInt(borrowed_amount_input.value);
   const nominal_rate = parseFloat(nominal_rate_input.value);
@@ -21,6 +22,7 @@ function drawTable(event) {
   let balance = borrowed_amount;
 
   if (checkBorrowedAmount() && checkNominalRate() && checkRepaymentTerm()) {
+  
     errors.innerHTML = "";
     tbody.innerHTML = "";
     pdfButton.style.display = "block";
