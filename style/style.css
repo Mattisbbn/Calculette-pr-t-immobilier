@@ -129,6 +129,8 @@ section{
 
 #table-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
     overflow-x: auto;
     padding-bottom: 10px; /* Assure que le conteneur de tableau peut déborder horizontalement si nécessaire */
 }
