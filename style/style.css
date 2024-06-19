@@ -122,20 +122,44 @@ section{
     margin-top: 15px;
     justify-content: center;
     align-items: center;
-
-  
+ 
+   
 }
-  
+
+
+#table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px; /* Assure que le conteneur de tableau peut déborder horizontalement si nécessaire */
+}
+
+#table-container::-webkit-scrollbar {
+    width: 10px; 
+ 
+}
+
+
+
+#table-container::-webkit-scrollbar-thumb {
+    background-color: var(--blue); 
+    border-radius: 15px; 
+}
+
+
 section , button, input ,input:focus{
     box-shadow: 3px 3px  2px #00000030;
 }
 
-table{
-    width: 100%;
-    border-collapse: collapse;
+th{
+    padding: 5px;
 }
+
 td{
     text-align: center;
+}
+
+input:valid{
+    color: "var(--orange)";
 }
 
 @media screen and (max-width: 760px) {
@@ -159,12 +183,8 @@ td{
     }
     }
 
-
-
-
-
     section{
-        display: flex;
+      
         flex-direction: column;
         margin-bottom: 15px;
         padding: 20px;

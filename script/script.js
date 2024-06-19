@@ -56,8 +56,8 @@ function drawTable(event) {
 
 function checkBorrowedAmount() {
   const borrowed_amount_value = borrowed_amount_input.value;
-  if (borrowed_amount_value <= 0) {
-    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0");
+  if (borrowed_amount_value <= 1000) {
+    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 1000 dans la case montant emprunté");
     inputs[0].style.color = "var(--orange)";
     return false;
   } else if (isNaN(borrowed_amount_value)) {
