@@ -2,10 +2,11 @@ const form = document.querySelector("form");
 const tbody = document.querySelector("tbody");
 const pdfButton = document.querySelector("#pdfButton");
 const inputs = document.querySelectorAll("input");
-
 const borrowed_amount_input = document.querySelector("#borrowed_amount");
 const nominal_rate_input = document.querySelector("#nominal_rate");
 const repayment_term_input = document.querySelector("#repayment_term");
+
+
 
 form.addEventListener("submit", drawTable);
 pdfButton.addEventListener("click", generatePDF);
@@ -19,9 +20,9 @@ function drawTable(event) {
   let interestPerMonth = nominal_rate / 12 / 100;
   let remainingBalance = borrowed_amount;
   let balance = borrowed_amount;
-  if (checkNominalRate() == true && checkBorrowedAmount() == true) {
-    tbody.innerHTML = "";
 
+  if (checkBorrowedAmount() && checkNominalRate() &&  checkRepaymentTerm() ) {
+    tbody.innerHTML = "";
     for (let i = 1; i <= repaymentTermInMonth; i++) {
       let interestOfMonth = remainingBalance * interestPerMonth;
       let monthlyDue =
@@ -29,8 +30,8 @@ function drawTable(event) {
         ((interestPerMonth * (1 + interestPerMonth) ** repaymentTermInMonth) /
           ((1 + interestPerMonth) ** repaymentTermInMonth - 1));
       let amortization = monthlyDue - interestOfMonth;
-
       remainingBalance -= amortization;
+
       let row = `<tr>
             <td>${i}</td> 
             <td>${Math.round(balance)}€</td> 
@@ -50,31 +51,57 @@ function drawTable(event) {
   }
 }
 
-function checkNominalRate() {
-  const nominal_rate_value = nominal_rate_input.value;
-  if (nominal_rate_value <= 0) {
-    console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
-    return false;
-  } else if (isNaN(nominal_rate_value)) {
-    console.log("Veuillez entrer une valeur numérique");
-    return false;
-  }else {
-    return true;
-  }
-}
-
 function checkBorrowedAmount() {
   const borrowed_amount_value = borrowed_amount_input.value;
   if (borrowed_amount_value <= 0) {
     console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
+    inputs[0].style.color = 'var(--orange)'
     return false;
   } else if (isNaN(borrowed_amount_value)) {
     console.log("Veuillez entrer une valeur numérique");
+    inputs[0].style.color = 'var(--orange)'
     return false;
   }else {
+     inputs[0].style.color = 'var(--blue)'
     return true;
   }
 }
+
+function checkNominalRate() {
+  const nominal_rate_value = nominal_rate_input.value;
+  if (nominal_rate_value <= 0) {
+    console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
+    inputs[1].style.color = 'var(--orange)'
+    return false;
+  } else if (isNaN(nominal_rate_value)) {
+    console.log("Veuillez entrer une valeur numérique");
+    inputs[1].style.color = 'var(--orange)'
+    return false;
+  }else {
+     inputs[1].style.color = 'var(--blue)'
+    return true;
+  }
+}
+
+
+
+function checkRepaymentTerm(){
+const repayment_term_value =  repayment_term_input.value
+if (repayment_term_value <= 0) {
+  console.log("Vous ne pouvez pas entrer une valeur inférieure à 0");
+  errorsList.push("test")
+   inputs[2].style.color = 'var(--orange)'
+  return false;
+} else if (isNaN(repayment_term_value)) {
+  console.log("Veuillez entrer une valeur numérique");
+   inputs[2].style.color = 'var(--orange)'
+  return false;
+}else {
+   inputs[2].style.color = 'var(--blue)'
+  return true;
+}
+}
+let errorsList = []
 
 function generatePDF() {
   const { jsPDF } = window.jspdf;
