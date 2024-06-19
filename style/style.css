@@ -32,6 +32,8 @@ main{
    
 }
 
+
+
 form{
     width: 100%;
     display: flex;
@@ -126,18 +128,24 @@ section{
    
 }
 
+table{
+    width: 100%;
+    margin: auto;
+    
+}
+
+th{
+    padding: 10px;
+}
 
 #table-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
     overflow-x: auto;
-    padding-bottom: 10px; /* Assure que le conteneur de tableau peut déborder horizontalement si nécessaire */
+    padding-bottom: 10px;
 }
 
 #table-container::-webkit-scrollbar {
     width: 10px; 
- 
 }
 
 
@@ -152,9 +160,7 @@ section , button, input ,input:focus{
     box-shadow: 3px 3px  2px #00000030;
 }
 
-th{
-    padding: 5px;
-}
+
 
 td{
     text-align: center;

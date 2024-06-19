@@ -8,7 +8,7 @@ const nominal_rate_input = document.querySelector("#nominal_rate");
 const repayment_term_input = document.querySelector("#repayment_term");
 
 form.addEventListener("submit", drawTable);
-pdfButton.addEventListener("click", generatePDF);
+// pdfButton.addEventListener("click", generatePDF);
 
 function drawTable(event) {
   errorsList = []
@@ -105,17 +105,16 @@ function checkRepaymentTerm() {
 
 let errorsList = [];
 
-function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
 
-  doc.autoTable({
-    html: "table",
-    theme: "striped",
-    headStyles: { fillColor: [0, 0, 255] },
-    styles: { fontSize: 10, cellPadding: 3 },
-    margin: { top: 20 },
+  document.getElementById("pdfButton").addEventListener("click", () => {
+    const element = document.getElementById("table-section");
+    
+    const opt = {
+      filename:     'tableau_amortissement.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 4, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
   });
-
-  doc.save("Tableau.pdf");
-}
