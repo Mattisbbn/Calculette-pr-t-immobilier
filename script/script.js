@@ -7,8 +7,10 @@ const borrowed_amount_input = document.querySelector("#borrowed_amount");
 const nominal_rate_input = document.querySelector("#nominal_rate");
 const repayment_term_input = document.querySelector("#repayment_term");
 
+let errorsList = [];
+
 form.addEventListener("submit", drawTable);
-// pdfButton.addEventListener("click", generatePDF);
+document.getElementById("pdfButton").addEventListener("click", generatePDF);
 
 function drawTable(event) {
   errorsList = []
@@ -103,18 +105,17 @@ function checkRepaymentTerm() {
   }
 }
 
-let errorsList = [];
 
 
-  document.getElementById("pdfButton").addEventListener("click", () => {
-    const element = document.getElementById("table-section");
-    
-    const opt = {
-      filename:     'tableau_amortissement.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 4, useCORS: true },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
+function generatePDF(){
+  const element = document.getElementById("table-section");
+  
+  const opt = {
+    filename:     'tableau_amortissement.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 1, useCORS: true },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
 
-    html2pdf().set(opt).from(element).save();
-  });
+  html2pdf().set(opt).from(element).save();
+}
