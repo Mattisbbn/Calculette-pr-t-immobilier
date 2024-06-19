@@ -91,16 +91,16 @@ function checkNominalRate() {
 function checkRepaymentTerm() {
   const repayment_term_value = repayment_term_input.value;
   if (repayment_term_value <= 0) {
-    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0");
-    inputs[2].style.color = "var(--orange)";
+    errorsList.push("Vous ne pouvez pas entrer une valeur inférieure à 0")
+    inputs[2].style.color = "var(--orange)"
     return false;
   } else if (isNaN(repayment_term_value)) {
-    errorsList.push("Veuillez entrer une valeur numérique");
-    inputs[2].style.color = "var(--orange)";
+    errorsList.push("Veuillez entrer une valeur numérique")
+    inputs[2].style.color = "var(--orange)"
 
     return false;
   } else {
-    inputs[2].style.color = "var(--blue)";
+    inputs[2].style.color = "var(--blue)"
     return true;
   }
 }
@@ -108,14 +108,12 @@ function checkRepaymentTerm() {
 
 
 function generatePDF(){
-  const element = document.getElementById("table-section");
-  
+  const element = document.getElementById("table-section")
   const opt = {
     filename:     'tableau_amortissement.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { scale: 1, useCORS: true },
     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(element).save();
+  }
+  html2pdf().set(opt).from(element).save()
 }
