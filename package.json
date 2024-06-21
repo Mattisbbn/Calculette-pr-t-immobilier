@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Mattisbbn/Calculette-pret-immobilier/issues"
   },
-  "homepage": "https://github.com/Mattisbbn/Calculette-pret-immobilier#readme"
+  "homepage": "https://github.com/Mattisbbn/Calculette-pret-immobilier#readme",
+  "devDependencies": {
+    "electron": "^31.0.2"
+  }
 }
